@@ -1822,7 +1822,7 @@ const STAGES = [
   {id:"apply", name:"Apply", sub:"Hands-on tasks"},
   {id:"check", name:"Checkpoint", sub:"Exam-style questions"}
 ];
-const TEACHER = new URLSearchParams(location.search).has("teacher");
+const TEACHER = new URLSearchParams(location.search).has("teacher") || location.hash==="#teacher";
 
 function g(){ return PROG._game || (PROG._game = {streak:0, best:0, badges:{}, comeback:false}); }
 function liveSkills(){ const out=[]; SKILL_MAP.forEach(gr=>gr.items.forEach(it=>{ if(it[3] && SKILLS[it[3]]) out.push(it[3]); })); return out; }
