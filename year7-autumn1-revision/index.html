@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 7 Revision: Staying Safe Online</title>
+<meta name="description" content="Year 7 Computer Science Autumn 1 revision: online identity, digital footprint, passwords, AI fakes, cyberbullying, unsafe contact.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<style>
+:root{
+  --navy:#1F3864;--navy2:#2C4F8A;--ink:#1d2433;--muted:#5b6475;--bg:#f4f6fb;--card:#ffffff;--line:#d9dfeb;
+  --blue:#E8F0FB;--green:#1f8a4c;--greenbg:#e3f5ea;--red:#c0392b;--redbg:#fdeaea;--amber:#f2a900;--amberbg:#fff4d6;
+  --t1:#7b4fd6;--t2:#1a8f8f;--t3:#d46a1f;--t4:#c2337a;--t5:#2d7dd2;--t6:#5a8f29;
+}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;font-family:"Segoe UI",Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header.top{background:var(--navy);color:#fff;padding:18px 0 14px;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.top .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top h1{font-size:1.25rem;margin:0;flex:1;min-width:220px}
+.top .sub{font-size:.8rem;opacity:.85;display:block;font-weight:400}
+.pill{background:rgba(255,255,255,.15);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.9rem;white-space:nowrap}
+.bar{height:10px;background:rgba(255,255,255,.2);border-radius:99px;margin-top:12px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#5fd18a,#f2d14a);transition:width .5s}
+main{padding:22px 0 60px}
+.hero{background:var(--card);border-radius:18px;padding:22px;border:1px solid var(--line);margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.hero h2{margin:0 0 6px;font-size:1.4rem;color:var(--navy)}
+.hero p{margin:0;color:var(--muted)}
+.steps{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.steps span{background:var(--blue);border-radius:10px;padding:6px 12px;font-size:.85rem;font-weight:600;color:var(--navy)}
+.shield{font-size:4rem;line-height:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;display:flex;gap:14px;align-items:flex-start;transition:transform .15s, box-shadow .15s;border-left:8px solid var(--c)}
+.tile:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(31,56,100,.12)}
+.tile .ic{font-size:2.1rem;line-height:1}
+.tile b{display:block;font-size:1.02rem;color:var(--ink)}
+.tile small{color:var(--muted);font-size:.8rem;display:block}
+.tile .st{margin-top:6px;font-size:.85rem;font-weight:700;color:var(--c)}
+.tile.final{--c:var(--navy);background:linear-gradient(135deg,#fff,#eef3ff)}
+.view{display:none}
+.view.on{display:block;animation:fade .35s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.back{background:none;border:0;color:var(--navy);font-weight:700;padding:6px 0;margin-bottom:8px}
+.thead{display:flex;align-items:center;gap:14px;background:var(--c);color:#fff;border-radius:16px;padding:16px 20px;margin-bottom:16px}
+.thead .ic{font-size:2.4rem}
+.thead h2{margin:0;font-size:1.35rem}
+.thead p{margin:0;opacity:.9;font-size:.85rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button{flex:1;border:2px solid var(--c);background:#fff;color:var(--c);border-radius:12px;padding:10px;font-weight:800}
+.tabs button.on{background:var(--c);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.card h3{margin:0 0 10px;color:var(--navy);font-size:1.05rem}
+.k{font-weight:800;color:var(--c)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.box{border-radius:12px;padding:12px;background:var(--blue)}
+.box b{display:block;margin-bottom:4px}
+.box.g{background:var(--greenbg)}.box.r{background:var(--redbg)}.box.a{background:var(--amberbg)}
+.flow{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
+.flow .stp{flex:1;min-width:140px;background:#fff;border:2px solid var(--c);border-radius:12px;padding:10px;position:relative}
+.flow .stp .L{display:inline-flex;width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;font-weight:900;font-size:1.2rem;align-items:center;justify-content:center;margin-bottom:6px}
+.flow .stp b{display:block}
+.flow .stp small{color:var(--muted)}
+.note{background:var(--amberbg);border-left:6px solid var(--amber);border-radius:10px;padding:10px 14px;margin-top:12px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:#fff;border:2px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.9rem}
+.reveal{border:2px dashed var(--c);border-radius:12px;padding:10px 14px;margin-top:10px;background:#fff}
+.reveal button{background:var(--c);color:#fff;border:0;border-radius:8px;padding:6px 12px;font-weight:700}
+.reveal .ans{display:none;margin-top:8px}
+.reveal.open .ans{display:block;animation:fade .3s}
+table.t{width:100%;border-collapse:collapse;font-size:.92rem}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:8px}
+table.t td{border-bottom:1px solid var(--line);padding:8px}
+.crack{display:flex;align-items:center;gap:10px}
+.crack .meter{flex:1;height:14px;background:#eee;border-radius:99px;overflow:hidden}
+.crack .meter i{display:block;height:100%;border-radius:99px;transition:width .5s, background .5s}
+input.pw{width:100%;font:inherit;font-size:1.1rem;padding:10px 12px;border:2px solid var(--line);border-radius:10px}
+input.pw:focus{outline:none;border-color:var(--c)}
+.big{font-size:1.15rem;font-weight:800}
+/* questions */
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.qn{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:8px}
+.qn .num{font-weight:900;color:var(--c)}
+.qn .type{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;background:var(--blue);color:var(--navy);padding:3px 8px;border-radius:6px;font-weight:800}
+.qt{font-weight:700;margin-bottom:12px}
+.opts{display:grid;gap:8px}
+.opt{border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;text-align:left;transition:border-color .15s, background .15s}
+.opt:hover:not(:disabled){border-color:var(--c)}
+.opt.right{border-color:var(--green);background:var(--greenbg)}
+.opt.wrong{border-color:var(--red);background:var(--redbg)}
+.opt:disabled,.msg:disabled,.bk:disabled{cursor:default;opacity:1}
+.opt,.msg,.bk:not(.sel):not(.right):not(.wrong){color:var(--ink)}
+select:disabled{color:var(--ink);opacity:1}
+.tf{display:flex;gap:10px}
+.tf .opt{flex:1;text-align:center;font-weight:800}
+.sortrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--line)}
+.sortrow .it{flex:1;min-width:180px}
+.bk{border:2px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:.85rem;font-weight:700}
+.bk.sel{background:var(--c);border-color:var(--c);color:#fff}
+.bk.right{background:var(--green);border-color:var(--green);color:#fff}
+.bk.wrong{background:var(--red);border-color:var(--red);color:#fff}
+.mrow{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:center;padding:6px 0}
+select{font:inherit;font-size:.92rem;padding:7px 8px;border-radius:9px;border:2px solid var(--line);background:#fff;max-width:100%}
+select.right{border-color:var(--green);background:var(--greenbg)}
+select.wrong{border-color:var(--red);background:var(--redbg)}
+.gaptext{line-height:2.4}
+.gaptext select{margin:0 4px}
+.chat{background:#e9edf5;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:82%;border:2px solid transparent;border-radius:14px;padding:8px 12px;text-align:left;background:#fff}
+.msg.them{align-self:flex-start}
+.msg.me{align-self:flex-end;background:#dcf2e4;cursor:default}
+.msg .who{display:block;font-size:.72rem;font-weight:800;color:var(--muted)}
+.msg.flag{border-color:var(--amber);background:var(--amberbg)}
+.msg.right{border-color:var(--green);background:var(--greenbg)}
+.msg.wrong{border-color:var(--red);background:var(--redbg)}
+.msg.missed{border-color:var(--red);border-style:dashed}
+.check{margin-top:12px;background:var(--c);color:#fff;border:0;border-radius:10px;padding:10px 18px;font-weight:800}
+.check:disabled{opacity:.45;cursor:default}
+.fb{display:none;margin-top:12px;border-radius:12px;padding:10px 14px;font-weight:600}
+.fb.show{display:block;animation:fade .3s}
+.fb.good{background:var(--greenbg);border-left:6px solid var(--green)}
+.fb.part{background:var(--amberbg);border-left:6px solid var(--amber)}
+.fb.bad{background:var(--redbg);border-left:6px solid var(--red)}
+.fb .why{display:block;font-weight:400;margin-top:4px}
+.done{background:var(--card);border:2px solid var(--c);border-radius:16px;padding:18px;text-align:center}
+.done .big{font-size:1.6rem;color:var(--c)}
+.btn{border:0;border-radius:10px;padding:10px 18px;font-weight:800;background:var(--navy);color:#fff;margin:6px}
+.btn.alt{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.sum{display:grid;gap:8px;text-align:left;margin:14px 0}
+.sum div{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-radius:10px;background:var(--bg)}
+.stars{color:var(--amber);letter-spacing:2px}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+@media (max-width:640px){
+  html{font-size:16px}
+  .hero{grid-template-columns:1fr}.shield{display:none}
+  .mrow{grid-template-columns:1fr}
+  .msg{max-width:95%}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="row">
+      <h1>🛡️ Staying Safe Online: Revision<span class="sub">Year 7 Computer Science · Autumn 1</span></h1>
+      <span class="pill" id="timer">⏱ 0:00</span>
+      <span class="pill" id="score">⭐ 0 / 0</span>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view on" id="home">
+    <div class="hero">
+      <div>
+        <h2>Revise the whole unit in about 20 minutes</h2>
+        <p>Six topics, then a final challenge. In each topic, read the <b>Learn it</b> page, then try the <b>Check it</b> questions. You get instant feedback.</p>
+        <div class="steps"><span>1. Learn it (1 min)</span><span>2. Check it (2 min)</span><span>3. Final challenge (3 min)</span></div>
+      </div>
+      <div class="shield">🛡️</div>
+    </div>
+    <div class="grid" id="tiles"></div>
+    <p style="text-align:center;margin-top:18px"><button class="btn alt" id="resetAll">Start again from zero</button></p>
+  </section>
+  <div id="views"></div>
+</main>
+<footer>Year 7 Computer Science · Staying Safe Online revision · Made-up names and passwords only</footer>
+
+<script>
+/* ============ CONTENT ============ */
+const TOPICS = [
+{ id:'t1', n:'1', ic:'🪪', col:'var(--t1)', title:'Your Online Identity', sub:'Personal data and oversharing',
+  learn:`
+  <div class="card"><h3>What is personal data?</h3>
+   <p><span class="k">Personal data</span> is any information that identifies you, or could be linked back to you.</p>
+   <div class="cols">
+    <div class="box r"><b>🔴 Personal</b>Full name · date of birth · home address · phone number · a photo of your face</div>
+    <div class="box a"><b>🟠 It depends</b>Your first name · the city you live in · your school. On its own it is fine. <b>Put together</b>, it can find you.</div>
+    <div class="box g"><b>🟢 Not personal</b>Your favourite food · today's weather · the game you like</div>
+   </div>
+   <div class="note">Context decides. "Omar" is safe. "Omar, Year 7, Al Nakheel School, Al Waab" points to one real boy.</div>
+  </div>
+  <div class="card"><h3>Usernames and profiles</h3>
+   <div class="cols">
+    <div class="box r"><b>❌ OmarHaddad2014</b>Real name plus birth year. Two identifiers in one!</div>
+    <div class="box g"><b>✅ PixelComet88</b>Says nothing about who you are or where you live.</div>
+   </div>
+   <p style="margin-top:10px">Check your <span class="k">profile picture and background</span> too: school uniform, a house number, a street sign or a school logo all give clues.</p>
+   <p><span class="k">Oversharing</span> happens without meaning to. Small details add up, like pieces of a jigsaw.</p>
+  </div>`,
+  qs:[
+   {type:'sort', q:'Sort each piece of information.', buckets:['Personal','It depends','Not personal'],
+    items:[['Your home address',0],['Your date of birth',0],['Your first name only',1],['The city you live in',1],['Your favourite food',2],['The weather today',2]],
+    why:'Personal data identifies you on its own. "It depends" items become personal when they are combined with other details.'},
+   {type:'mcq', q:'Which username is the SAFEST choice?', options:['OmarHaddad2014','Omar_AlWaab','PixelComet88','OmarNakheel7C'], a:2,
+    why:'PixelComet88 gives away no name, area, school or age. The others all contain identifiers.'},
+   {type:'mcq', q:'Sara\'s profile picture shows her in school uniform, in front of her house. The number 14 is on the door. What is the problem?', options:['The picture is too small','It shows her school and where she lives','Nothing, it is her own picture','It has too many colours'], a:1,
+    why:'The uniform shows her school and the door number helps a stranger find her home. Check backgrounds before you post.'},
+   {type:'tf', q:'One small detail cannot identify you, so sharing lots of small details is safe.', a:false,
+    why:'Small details add up. A school name, a street and a sports club together can lead a stranger to you.'}
+  ]},
+{ id:'t2', n:'2', ic:'👣', col:'var(--t2)', title:'Your Digital Footprint', sub:'Active, passive and permanent',
+  learn:`
+  <div class="card"><h3>The trail you leave behind</h3>
+   <p>Your <span class="k">digital footprint</span> is the trail of data you leave when you use the internet and apps.</p>
+   <div class="cols">
+    <div class="box"><b>✋ ACTIVE footprint</b>Somebody <b>chose</b> to share it: a post, a photo, a comment, a username.</div>
+    <div class="box"><b>📡 PASSIVE footprint</b><b>Collected automatically</b>: your location, how long you watch videos, adverts that follow you.</div>
+   </div>
+   <div class="note">Ask one question: did anybody press post? Yes = active. No = passive.</div>
+  </div>
+  <div class="card"><h3>Deleted is not the same as removed</h3>
+   <div class="flow">
+    <div class="stp"><span class="L">📸</span><b>Screenshot</b><small>Someone saves a picture of it and keeps it.</small></div>
+    <div class="stp"><span class="L">🔁</span><b>Repost</b><small>Someone shares it on THEIR account.</small></div>
+    <div class="stp"><span class="L">🗄️</span><b>Archive</b><small>Websites save copies without asking.</small></div>
+   </div>
+   <p style="margin-top:12px">🍪 A <span class="k">cookie</span> is a small file a website saves to remember you. It lets sites track you, which is why football boot adverts follow you around. Cookies are <b>passive</b>.</p>
+   <p>🔮 The <span class="k">future you test</span>: would you be happy for anyone to see this in five years' time?</p>
+  </div>`,
+  qs:[
+   {type:'sort', q:'Active or passive? Sort each part of Rami\'s footprint.', buckets:['Active','Passive'],
+    items:[['A photo Rami posts of his football team',0],['His gamertag, RamiStriker10',0],['The route his running app records',1],['How long a video app records he watched',1],['A comment Rami writes under a post',0],['Shoe adverts that follow him to other sites',1]],
+    why:'Active = somebody pressed post. Passive = collected automatically without anyone choosing to share it.'},
+   {type:'mcq', q:'Omar deletes his birthday post after one hour. Which is TRUE?', options:['It is gone forever','Only Omar can still see it','Copies may still exist in screenshots, reposts or archives','It is safe because his account is private'], a:2,
+    why:'Once something is online, other people and websites can copy it. Deleting your post does not delete their copies.'},
+   {type:'gap', text:'A {0} is a small file a website saves to remember you. It is part of your {1} footprint, because you never chose to share it.', options:['cookie','password','passive','active'], a:['cookie','passive'],
+    why:'Cookies are collected automatically, so they are part of your passive footprint.'},
+   {type:'tf', q:'If you never post anything, you have no digital footprint at all.', a:false,
+    why:'Your passive footprint is collected anyway, and other people can post about you too.'}
+  ]},
+{ id:'t3', n:'3', ic:'🔐', col:'var(--t3)', title:'Locking the Door', sub:'Passwords and account security',
+  learn:`
+  <div class="card"><h3>Why Simba2014 fell in one second</h3>
+   <p>Attackers start with <span class="k">guess lists</span>: common passwords, names, pets, birthdays, teams. A <span class="k">guessable</span> password is about you, or it is on a list.</p>
+   <table class="t"><tr><th>Password</th><th>Time for a computer to crack</th></tr>
+    <tr><td>1234</td><td>instantly</td></tr><tr><td>tiger7</td><td>2 seconds</td></tr><tr><td>P@s5w!</td><td>12 minutes</td></tr>
+    <tr><td>lampcactus</td><td>about 2 days</td></tr><tr><td><b>riverclockmango4</b></td><td><b>250 million years</b></td></tr></table>
+   <div class="note">Length beats complexity. Every extra character MULTIPLIES the work. A symbol only adds a few more choices.</div>
+  </div>
+  <div class="card"><h3>🧪 Try the strength tester</h3>
+   <p style="margin-top:0">Type a <b>made-up</b> password. Never type a real one!</p>
+   <input class="pw" id="pwTest" placeholder="e.g. lamp cactus 7 river" autocomplete="off" spellcheck="false">
+   <div class="crack" style="margin-top:10px"><div class="meter"><i id="pwBar"></i></div></div>
+   <p class="big" id="pwOut" style="margin:8px 0 0">Start typing…</p>
+  </div>
+  <div class="card"><h3>Protect the account</h3>
+   <div class="cols">
+    <div class="box"><b>🧩 Passphrase</b>Three unrelated words + a number in the middle: <b>lampcactus7river</b></div>
+    <div class="box r"><b>🔗 Domino effect</b>Reuse one password and one leak opens every account. Your email is the master key.</div>
+    <div class="box g"><b>📱 Two-step verification</b>Something you KNOW (password) + something you HAVE (code on your phone).</div>
+   </div>
+   <div class="note">Never share a password or code, even with a best friend. Lock your screen and log out on shared computers.</div>
+  </div>`,
+  qs:[
+   {type:'mcq', q:'Which password would take a computer the LONGEST to crack?', options:['Doha2013!','qwerty12345','mangotrainlemon6','P@5sw0rd'], a:2,
+    why:'mangotrainlemon6 is the longest and is made of unrelated words. The others are on guess lists.'},
+   {type:'match', q:'Match each word to its meaning.', pairs:[['guessable','Easy to work out, because it is about you'],['passphrase','A password made of several unrelated words'],['reuse','Using the same password on more than one account'],['two-step verification','A second check, like a code on your phone']],
+    why:'These four words come up in every password question.'},
+   {type:'gap', text:'Layla uses one password everywhere. A game site is hacked, so attackers try it on her {0} first, because it can {1} the password on everything else.', options:['email','calculator','reset','print'], a:['email','reset'],
+    why:'This is the domino effect. Your email is the master key, so use a different password for it.'},
+   {type:'tf', q:'It is fine to tell your best friend your password if you trust them.', a:false,
+    why:'Never share passwords or codes, even with friends. Friendships change and phones get borrowed.'}
+  ]},
+{ id:'t4', n:'4', ic:'🤖', col:'var(--t4)', title:'Is It Real?', sub:'AI pictures, deepfakes and checking',
+  learn:`
+  <div class="card"><h3>AI can make pictures, video and voices</h3>
+   <p>A <span class="k">deepfake</span> is a fake picture, video or voice of a <b>real person</b>, made with AI. Not every AI picture is a deepfake: an AI picture of food is just AI generated.</p>
+   <p><b>Clues AI used to get wrong:</b></p>
+   <div class="chips"><span>✋ Hands</span><span>🔤 Text</span><span>🦷 Teeth</span><span>👂 Ears</span><span>💍 Jewellery</span><span>💡 Light and shadow</span></div>
+   <div class="note">But the clues are disappearing. No clues does NOT mean real. Ask "where did it come from?"</div>
+  </div>
+  <div class="card"><h3>SIFT: check before you believe it</h3>
+   <div class="flow">
+    <div class="stp"><span class="L">S</span><b>Stop</b><small>Strong feeling? Slow down.</small></div>
+    <div class="stp"><span class="L">I</span><b>Investigate the source</b><small>Who posted it? Are they who they say?</small></div>
+    <div class="stp"><span class="L">F</span><b>Find other coverage</b><small>Is it on a real news site or official account?</small></div>
+    <div class="stp"><span class="L">T</span><b>Trace the original</b><small>Where did it first appear?</small></div>
+   </div>
+   <p style="margin-top:12px"><b>How fakes hurt people:</b> they <span class="k">embarrass</span> (a fake picture of a classmate), cause <span class="k">panic</span> (a fake "school is closed" post) and <span class="k">trick</span> (a fake voice note asking for a code).</p>
+   <div class="reveal"><b>Think:</b> a real photo gets called fake. Why is that a problem too? <button type="button">Show answer</button><div class="ans">People stop believing true evidence, so real problems can be ignored and the person telling the truth is not believed.</div></div>
+  </div>`,
+  qs:[
+   {type:'mcq', q:'Omar sees a photo of a lion in Aspire Park. It has no AI clues at all. What should he think?', options:['There are no clues, so it is real','It is shocking, so it must be fake','The picture alone cannot tell him, so he should check the source','200 people shared it, so it is real'], a:2,
+    why:'Good fakes have no clues. Checking who posted it and whether real news covers it is the reliable test.'},
+   {type:'match', q:'Match each SIFT step to what you do.', pairs:[['Stop','Notice how it makes you feel and slow down'],['Investigate the source','Check who posted it'],['Find other coverage','Look for it on a real news site'],['Trace the original','Find where it first appeared']],
+    why:'S I F T: Stop, Investigate, Find, Trace.'},
+   {type:'mcq', q:'Which one of these is a deepfake?', options:['A cartoon drawing of a cat','An AI video of a real footballer saying something he never said','An AI picture of a plate of food','A real photo with a filter'], a:1,
+    why:'A deepfake shows a REAL person doing or saying something they never did.'},
+   {type:'tf', q:'A new account with 12 followers posts shocking news. Nobody else reports it. You should share it quickly to warn people.', a:false,
+    why:'A new account, no other coverage and a strong feeling are all warning signs. Do not share it.'}
+  ]},
+{ id:'t5', n:'5', ic:'🛑', col:'var(--t5)', title:'When Things Go Wrong', sub:'Cyberbullying and what to do',
+  learn:`
+  <div class="card"><h3>What makes it cyberbullying?</h3>
+   <p><span class="k">Cyberbullying</span> is hurting someone <b>on purpose</b>, <b>again and again</b>, using <b>phones, apps or games</b>. One argument that gets sorted out is not cyberbullying.</p>
+   <div class="cols">
+    <div class="box"><b>🚪 Leaving out</b>A chat made with everyone except one person.</div>
+    <div class="box"><b>💬 Harassment</b>Nasty messages again and again.</div>
+    <div class="box"><b>🎭 Pretending</b>A fake account using someone's name and photo.</div>
+    <div class="box"><b>🖼️ Sharing pictures</b>An edited photo shared to laugh at someone.</div>
+   </div>
+   <p style="margin-top:10px"><b>Why it feels like no escape:</b> it follows you home, everyone can see, bullies hide behind fake names, and screenshots last.</p>
+  </div>
+  <div class="card"><h3>STOP: what to do</h3>
+   <div class="flow">
+    <div class="stp"><span class="L">S</span><b>Stop</b><small>Do not reply. A reply shows it worked.</small></div>
+    <div class="stp"><span class="L">T</span><b>Take a screenshot</b><small>Save the proof: name, message, time.</small></div>
+    <div class="stp"><span class="L">O</span><b>Opt out</b><small>Block, mute or leave. Report it on the app.</small></div>
+    <div class="stp"><span class="L">P</span><b>Pass it on</b><small>Tell a teacher or adult you trust.</small></div>
+   </div>
+   <div class="cols" style="margin-top:12px">
+    <div class="box r"><b>👀 Bystander</b>Sees it and does nothing.</div>
+    <div class="box g"><b>🙋 Upstander</b>Does something safe to help: supports the person, reports it, tells a teacher.</div>
+   </div>
+   <div class="note">Who to tell at USI: your form tutor, any teacher, the school counsellor, or an adult at home. Telling is not snitching. It is getting help.</div>
+  </div>`,
+  qs:[
+   {type:'sort', q:'Is it cyberbullying?', buckets:['Cyberbullying','Not cyberbullying'],
+    items:[['Every night for two weeks, someone messages Layla "nobody likes you"',0],['Omar and Hamad argue once about football, then make up',1],['A fake account uses Layla\'s name and photo',0],['A new chat is made again and again without Layla',0]],
+    why:'Cyberbullying is on purpose and again and again. A one off argument that gets sorted is not.'},
+   {type:'gap', text:'S: Stop, do not {0}. T: Take a {1}. O: Opt out, {2} the account. P: Pass it on, tell an {3} you trust.', options:['reply','screenshot','block','adult','share','delete'], a:['reply','screenshot','block','adult'],
+    why:'STOP keeps you safe and keeps the evidence.'},
+   {type:'mcq', q:'Layla wants to delete every nasty message so she never sees them again. Why is that a bad idea?', options:['Deleting takes too long','She loses the evidence she needs to report it','The bully will know she deleted them','Messages cannot be deleted'], a:1,
+    why:'Screenshots are proof. Without them it is harder for the app or school to act.'},
+   {type:'sort', q:'Omar sees an edited photo of Layla. Bystander or upstander?', buckets:['Bystander','Upstander'],
+    items:[['Reads it and says nothing',0],['Messages Layla: "You OK? That wasn\'t fair."',1],['Reports the post and tells a teacher',1]],
+    why:'An upstander does something safe to help. Never join in or share it on.'}
+  ]},
+{ id:'t6', n:'6', ic:'🚨', col:'var(--t6)', title:'Contact and Content', sub:'Strangers, warning signs and reporting',
+  learn:`
+  <div class="card"><h3>Someone you met online is still a stranger</h3>
+   <p>Friend requests, game chat and messages from unknown accounts can come from anyone. Photos, names and ages online can all be <b>fake</b>, so you never really know who they are.</p>
+   <p><b>Warning signs in a conversation:</b></p>
+   <div class="cols">
+    <div class="box a"><b>😍 Flattery</b>"You're so mature for your age."</div>
+    <div class="box a"><b>🤫 Secrecy</b>"Don't tell your parents about me."</div>
+    <div class="box a"><b>📲 Moving apps</b>"Let's chat on a different app."</div>
+    <div class="box a"><b>📷 Asking for things</b>Photos, your address, your school.</div>
+    <div class="box a"><b>🎁 Gifts</b>Free skins or in-game currency.</div>
+   </div>
+   <div class="note">A warning sign is not proof, but you still report it. Reporting lets an adult check safely.</div>
+  </div>
+  <div class="card"><h3>Content and what to do</h3>
+   <p><span class="k">Age ratings</span> (like PEGI 12 or PEGI 18 on games) tell you who content is suitable for. They are there to protect you.</p>
+   <p>See something upsetting you cannot unsee? <b>Close it, do not share it, and tell a trusted adult.</b></p>
+   <div class="flow">
+    <div class="stp"><span class="L">🚫</span><b>Block</b><small>Stop them contacting you.</small></div>
+    <div class="stp"><span class="L">🚩</span><b>Report in the app</b><small>Use the report button.</small></div>
+    <div class="stp"><span class="L">🏫</span><b>Tell school</b><small>Any teacher you trust.</small></div>
+    <div class="stp"><span class="L">🏠</span><b>Tell home</b><small>A parent or trusted adult.</small></div>
+   </div>
+  </div>`,
+  qs:[
+   {type:'chat', q:'Rami is chatting to "ProGamer_Zak" in a game. Click every message that is a WARNING SIGN, then press Check.',
+    msgs:[['them','gg! nice win 👍',0],['me','thanks!',0],['them','You\'re way better than the kids my age. So mature 😎',1],['them','I can send you 2000 free coins if you want',1],['them','Let\'s talk on a different app, it\'s easier',1],['them','Don\'t tell your parents, they won\'t get it',1],['them','What level are you on?',0]],
+    why:'Flattery, gifts, moving apps and secrecy are all warning signs. Rami should block, report and tell a trusted adult.'},
+   {type:'mcq', q:'Zak says he is 12 and sends a photo. Why is he still a stranger?', options:['Because he plays a different game','Because names, ages and photos online can all be fake','Because he lives in another country','He is not a stranger, he sent a photo'], a:1,
+    why:'You cannot see who is really typing. Someone met online is still a stranger.'},
+   {type:'mcq', q:'A video in a group chat really upsets Sara. What should she do?', options:['Share it so others can see','Watch it again to check','Close it, do not share it, and tell a trusted adult','Keep it secret'], a:2,
+    why:'Do not share it. Telling a trusted adult gets help.'},
+   {type:'tf', q:'If you are not sure a message is a warning sign, it is better not to report it.', a:false,
+    why:'A warning sign is not proof, but you report anyway so an adult can check.'}
+  ]}
+];
+
+const FINAL = [
+ {type:'mcq', q:'Hamad posts a photo with his school badge and his street sign behind him. Which TWO topics does this link to?', options:['Online identity and digital footprint','Passwords and two-step verification','Cyberbullying and age ratings','Deepfakes and cookies'], a:0, why:'He overshares personal data, and the post becomes part of his active footprint.'},
+ {type:'mcq', q:'Someone steals Sara\'s password. She has two-step verification turned on. What happens?', options:['They log in straight away','They still need the code on Sara\'s phone, so they cannot get in','Her account is deleted','Her password changes by itself'], a:1, why:'Something you know plus something you have.'},
+ {type:'mcq', q:'A voice note sounds exactly like Layla\'s uncle. It asks for the code sent to her phone. What should she do?', options:['Send the code quickly','Reply asking if it is really him','Not share the code, and check with the uncle another way','Forward it to friends'], a:2, why:'Voices can be faked with AI, and nobody real asks for your code.'},
+ {type:'tf', q:'A fake account that uses Layla\'s name and photo is a form of cyberbullying.', a:true, why:'Pretending to be someone is one of the four forms.'},
+ {type:'mcq', q:'Which is part of Maryam\'s PASSIVE footprint?', options:['A photo she posts of her lunch','Her bio on her account','The time a video app records she spent watching','A comment she writes'], a:2, why:'Nobody pressed post. It was collected automatically.'},
+ {type:'mcq', q:'A gamer offers Omar free skins if he sends a photo of himself. What is the BEST response?', options:['Send a photo without his face','Ask for the skins first','Do not send it, block, report and tell a trusted adult','Ignore it but keep chatting'], a:2, why:'Gifts plus a request for images are big warning signs.'},
+ {type:'mcq', q:'Which is the strongest password?', options:['Simba2014','P@s5w!','cloudpenguin8desk','Omar123'], a:2, why:'Long, unrelated words, not guessable.'},
+ {type:'tf', q:'An upstander shares the unkind post so that more people can see how bad it is.', a:false, why:'Sharing it on makes it worse. Upstanders support, report and tell.'}
+];
+
+/* ============ STATE ============ */
+const KEY='y7a1rev_v1';
+let S={};
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){S={}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+load();
+S.res=S.res||{}; // res[topicId][qi]={got,max}
+let START=Date.now();
+
+const $=s=>document.querySelector(s);
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+function maxOf(q){return q.type==='sort'?q.items.length:q.type==='match'?q.pairs.length:q.type==='gap'?q.a.length:q.type==='chat'?q.msgs.filter(m=>m[2]).length:1}
+function allSets(){return [...TOPICS.map(t=>({id:t.id,qs:t.qs})),{id:'final',qs:FINAL}]}
+function totals(){let got=0,max=0,done=0,all=0;allSets().forEach(s=>s.qs.forEach((q,i)=>{const m=maxOf(q);max+=m;all++;const r=(S.res[s.id]||{})[i];if(r){got+=r.got;done++}}));return{got,max,done,all}}
+function setTotals(id){const s=allSets().find(x=>x.id===id);let got=0,max=0,done=0;s.qs.forEach((q,i)=>{max+=maxOf(q);const r=(S.res[id]||{})[i];if(r){got+=r.got;done++}});return{got,max,done,n:s.qs.length}}
+function updateTop(){const t=totals();$('#score').textContent=`⭐ ${t.got} / ${t.max}`;$('#prog').style.width=(100*t.done/t.all)+'%';renderTiles()}
+function stars(p){return p>=.9?'★★★':p>=.6?'★★☆':'★☆☆'}
+
+/* ============ HOME ============ */
+function renderTiles(){
+  const g=$('#tiles');g.innerHTML='';
+  TOPICS.forEach(t=>{
+    const s=setTotals(t.id);
+    const b=el('button','tile');b.style.setProperty('--c',t.col);
+    b.innerHTML=`<span class="ic">${t.ic}</span><span><small>Topic ${t.n}</small><b>${t.title}</b><small>${t.sub}</small><span class="st">${s.done===s.n?`<span class="stars">${stars(s.got/s.max)}</span> ${s.got}/${s.max}`:s.done?`${s.done} of ${s.n} done`:'Not started'}</span></span>`;
+    b.onclick=()=>show(t.id);g.appendChild(b);
+  });
+  const s=setTotals('final');
+  const f=el('button','tile final');
+  f.innerHTML=`<span class="ic">🏆</span><span><small>Last 3 minutes</small><b>Final challenge</b><small>Mixed questions from every topic</small><span class="st">${s.done===s.n?`${s.got}/${s.max}`:s.done?`${s.done} of ${s.n} done`:'Not started'}</span></span>`;
+  f.onclick=()=>show('final');g.appendChild(f);
+}
+
+/* ============ QUESTIONS ============ */
+function record(setId,qi,got){S.res[setId]=S.res[setId]||{};S.res[setId][qi]={got};save();updateTop();checkDone(setId)}
+function feedback(box,got,max,why){
+  box.className='fb show '+(got===max?'good':got>0?'part':'bad');
+  box.innerHTML=(got===max?'✅ Correct!':got>0?`🟠 ${got} out of ${max} right.`:'❌ Not quite.')+`<span class="why">${why}</span>`;
+}
+function renderQ(setId,q,qi,col){
+  const prev=(S.res[setId]||{})[qi];
+  const types={mcq:'Multiple choice',tf:'True or false',sort:'Sort it',match:'Match it',gap:'Fill the gaps',chat:'Spot the signs'};
+  const w=el('div','q');w.style.setProperty('--c',col);
+  w.appendChild(el('div','qn',`<span class="num">Question ${qi+1}</span><span class="type">${types[q.type]}</span>`));
+  w.appendChild(el('div','qt',q.q||''));
+  const fb=el('div','fb');
+  const max=maxOf(q);
+
+  if(q.type==='mcq'||q.type==='tf'){
+    const opts=q.type==='tf'?['True','False']:q.options;
+    const ans=q.type==='tf'?(q.a?0:1):q.a;
+    const box=el('div',q.type==='tf'?'tf':'opts');
+    const btns=opts.map((o,i)=>{const b=el('button','opt',(q.type==='mcq'?`<b>${'ABCD'[i]}</b>  `:'')+o);b.type='button';box.appendChild(b);return b});
+    const lock=(pick)=>{btns.forEach((b,i)=>{b.disabled=true;if(i===ans)b.classList.add('right');else if(i===pick)b.classList.add('wrong')})};
+    btns.forEach((b,i)=>b.onclick=()=>{lock(i);const got=i===ans?1:0;feedback(fb,got,1,q.why);record(setId,qi,got)});
+    w.appendChild(box);
+    if(prev){lock(prev.got?ans:-1);feedback(fb,prev.got,1,q.why)}
+  }
+  if(q.type==='sort'){
+    const picks={};const rows=[];
+    shuffle(q.items.map((it,i)=>[it,i])).forEach(([it,i])=>{
+      const r=el('div','sortrow');r.appendChild(el('div','it',it[0]));
+      const bs=q.buckets.map((bn,bi)=>{const b=el('button','bk',bn);b.type='button';b.onclick=()=>{if(chk.disabled&&chk.dataset.done)return;picks[i]=bi;bs.forEach(x=>x.classList.remove('sel'));b.classList.add('sel');chk.disabled=Object.keys(picks).length<q.items.length};r.appendChild(b);return b});
+      rows.push({i,bs,ans:it[1]});w.appendChild(r);
+    });
+    const chk=el('button','check','Check');chk.type='button';chk.disabled=true;
+    const mark=()=>{let got=0;rows.forEach(({i,bs,ans})=>{bs.forEach(b=>b.disabled=true);bs[ans].classList.add('right');if(picks[i]===ans)got++;else if(picks[i]!=null)bs[picks[i]].classList.add('wrong')});chk.disabled=true;chk.dataset.done=1;return got};
+    chk.onclick=()=>{const got=mark();feedback(fb,got,max,q.why);record(setId,qi,got)};
+    w.appendChild(chk);
+    if(prev){mark();feedback(fb,prev.got,max,q.why)}
+  }
+  if(q.type==='match'){
+    const rights=shuffle(q.pairs.map(p=>p[1]));const sels=[];
+    q.pairs.forEach(([l,r])=>{
+      const row=el('div','mrow');row.appendChild(el('b','',l));
+      const s=el('select');s.innerHTML='<option value="">Choose…</option>'+rights.map(x=>`<option>${x}</option>`).join('');
+      s.onchange=()=>chk.disabled=sels.some(([x])=>!x.value);row.appendChild(s);sels.push([s,r]);w.appendChild(row);
+    });
+    const chk=el('button','check','Check');chk.type='button';chk.disabled=true;
+    const mark=(fill)=>{let got=0;sels.forEach(([s,r])=>{if(fill)s.value=r;s.disabled=true;if(s.value===r){got++;s.classList.add('right')}else{s.classList.add('wrong');s.insertAdjacentHTML('afterend',`<small style="color:var(--green);font-weight:700;display:block">✔ ${r}</small>`)}});chk.disabled=true;return got};
+    chk.onclick=()=>{const got=mark();feedback(fb,got,max,q.why);record(setId,qi,got)};
+    w.appendChild(chk);
+    if(prev){mark(true);feedback(fb,prev.got,max,q.why)}
+  }
+  if(q.type==='gap'){
+    const sels=[];const t=el('div','gaptext');
+    t.innerHTML=q.text.replace(/\{(\d)\}/g,(m,n)=>`<select data-n="${n}"><option value="">______</option>${shuffle(q.options).map(o=>`<option>${o}</option>`).join('')}</select>`);
+    t.querySelectorAll('select').forEach(s=>{sels.push(s);s.onchange=()=>chk.disabled=sels.some(x=>!x.value)});
+    w.appendChild(t);
+    const chk=el('button','check','Check');chk.type='button';chk.disabled=true;
+    const mark=(fill)=>{let got=0;sels.forEach(s=>{const a=q.a[+s.dataset.n];if(fill)s.value=a;s.disabled=true;if(s.value===a){got++;s.classList.add('right')}else{s.classList.add('wrong');s.insertAdjacentHTML('afterend',`<b style="color:var(--green)">(${a})</b>`)}});chk.disabled=true;return got};
+    chk.onclick=()=>{const got=mark();feedback(fb,got,max,q.why);record(setId,qi,got)};
+    w.appendChild(chk);
+    if(prev){mark(true);feedback(fb,prev.got,max,q.why)}
+  }
+  if(q.type==='chat'){
+    const c=el('div','chat');const items=[];
+    q.msgs.forEach(([who,txt,warn])=>{
+      const m=el(who==='me'?'div':'button','msg '+who,`<span class="who">${who==='me'?'Rami':'ProGamer_Zak'}</span>${txt}`);
+      if(who!=='me'){m.type='button';m.onclick=()=>{if(m.disabled)return;m.classList.toggle('flag')}}
+      items.push({m,warn,who});c.appendChild(m);
+    });
+    w.appendChild(c);
+    const chk=el('button','check','Check');chk.type='button';
+    const mark=(fill)=>{let got=0,wrongFlags=0;items.forEach(({m,warn,who})=>{if(who==='me')return;if(fill&&warn)m.classList.add('flag');const f=m.classList.contains('flag');m.disabled=true;m.classList.remove('flag');if(warn&&f){got++;m.classList.add('right')}else if(warn){m.classList.add('missed')}else if(f){wrongFlags++;m.classList.add('wrong')}});got=Math.max(0,got-wrongFlags);chk.disabled=true;return got};
+    chk.onclick=()=>{const got=mark();feedback(fb,got,max,q.why+' (A wrong click takes one mark away.)');record(setId,qi,got)};
+    w.appendChild(chk);
+    if(prev){mark(true);feedback(fb,prev.got,max,q.why)}
+  }
+  w.appendChild(fb);
+  return w;
+}
+
+/* ============ TOPIC VIEWS ============ */
+function buildViews(){
+  const v=$('#views');v.innerHTML='';
+  TOPICS.forEach((t,ti)=>{
+    const sec=el('section','view');sec.id=t.id;sec.style.setProperty('--c',t.col);
+    sec.innerHTML=`<button class="back" type="button">← All topics</button>
+      <div class="thead"><span class="ic">${t.ic}</span><div><p>Topic ${t.n} of 6</p><h2>${t.title}</h2></div></div>
+      <div class="tabs"><button type="button" class="on" data-tab="learn">📖 Learn it</button><button type="button" data-tab="check">✏️ Check it</button></div>
+      <div class="pane learn">${t.learn}<p style="text-align:center"><button class="btn" type="button" data-go="check" style="background:${t.col}">I'm ready: Check it ✏️</button></p></div>
+      <div class="pane qpane" style="display:none"></div>`;
+    const qs=sec.querySelector('.qpane');
+    t.qs.forEach((q,qi)=>qs.appendChild(renderQ(t.id,q,qi,t.col)));
+    qs.appendChild(el('div','done-slot'));
+    v.appendChild(sec);
+  });
+  const sec=el('section','view');sec.id='final';sec.style.setProperty('--c','var(--navy)');
+  sec.innerHTML=`<button class="back" type="button">← All topics</button><div class="thead"><span class="ic">🏆</span><div><p>Every topic</p><h2>Final challenge</h2></div></div><div class="pane qpane"></div>`;
+  const qs=sec.querySelector('.qpane');FINAL.forEach((q,qi)=>qs.appendChild(renderQ('final',q,qi,'var(--navy)')));qs.appendChild(el('div','done-slot'));
+  v.appendChild(sec);
+
+  document.querySelectorAll('.back').forEach(b=>b.onclick=()=>show('home'));
+  document.querySelectorAll('.view').forEach(sec=>{
+    const tabs=sec.querySelectorAll('.tabs button');
+    const go=(name)=>{tabs.forEach(x=>x.classList.toggle('on',x.dataset.tab===name));sec.querySelector('.learn').style.display=name==='learn'?'':'none';sec.querySelector('.qpane').style.display=name==='check'?'':'none';window.scrollTo({top:0,behavior:'smooth'})};
+    tabs.forEach(b=>b.onclick=()=>go(b.dataset.tab));
+    sec.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+  });
+  document.querySelectorAll('.reveal button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+  initPw();
+  allSets().forEach(s=>checkDone(s.id));
+}
+function checkDone(id){
+  const s=setTotals(id);const slot=document.querySelector(`#${id} .done-slot`);if(!slot)return;
+  if(s.done<s.n){slot.innerHTML='';return}
+  const idx=TOPICS.findIndex(t=>t.id===id);
+  if(id==='final'){
+    const sum=TOPICS.map(t=>{const x=setTotals(t.id);const p=x.done?x.got/x.max:0;return `<div><span>${t.ic} ${t.title}</span><span>${x.done===x.n?`<span class="stars">${stars(p)}</span> ${x.got}/${x.max}${p<.6?' · revise again':''}`:'not finished'}</span></div>`}).join('');
+    const tt=totals();
+    slot.innerHTML=`<div class="done" style="--c:var(--navy)"><div class="big">🏆 ${s.got} / ${s.max} in the final challenge</div><p>Overall score: <b>${tt.got} / ${tt.max}</b>. Time: <b>${fmt(Date.now()-START)}</b></p><div class="sum">${sum}</div><p>Any topic with one star? Go back and read its Learn it page again.</p><button class="btn" type="button" onclick="show('home')">Back to topics</button></div>`;
+    return;
+  }
+  const next=idx<TOPICS.length-1?TOPICS[idx+1]:null;
+  slot.innerHTML=`<div class="done"><div class="big"><span class="stars">${stars(s.got/s.max)}</span> ${s.got} / ${s.max}</div><p>${s.got===s.max?'Perfect! You know this topic.':s.got/s.max>=.6?'Good work. Read the feedback on anything you missed.':'Read the Learn it page again, then try once more.'}</p>
+   <button class="btn alt" type="button" data-retry="${id}">Try this topic again</button>
+   <button class="btn" type="button" onclick="show('${next?next.id:'final'}')">${next?'Next: '+next.title+' →':'Final challenge 🏆'}</button></div>`;
+  slot.querySelector('[data-retry]').onclick=()=>{delete S.res[id];save();updateTop();buildViews();show(id,'check')};
+}
+
+/* ============ PASSWORD TESTER ============ */
+function initPw(){
+  const inp=$('#pwTest');if(!inp)return;
+  const common=['password','qwerty','123456','letmein','admin','welcome','football','iloveyou','monkey','dragon','simba','omar','doha','qatar','abc123','111111','sunshine','princess'];
+  inp.oninput=()=>{
+    const p=inp.value;const bar=$('#pwBar'),out=$('#pwOut');
+    if(!p){bar.style.width='0';out.textContent='Start typing…';return}
+    const low=p.toLowerCase();
+    const guessable=common.some(c=>low.includes(c))||/^[a-z]+(19|20)\d\d[!.]?$/i.test(p)||/^\d+$/.test(p)&&p.length<9;
+    let cs=0;if(/[a-z]/.test(p))cs+=26;if(/[A-Z]/.test(p))cs+=26;if(/\d/.test(p))cs+=10;if(/[^a-zA-Z0-9]/.test(p))cs+=33;
+    const secs=Math.pow(cs,p.length)/1e9;
+    let txt,pct,col;
+    if(guessable){txt='About 1 second: it is on a guess list! 😬';pct=4;col='var(--red)'}
+    else{
+      const units=[[31536e3*1e6,'million years'],[31536e3,'years'],[86400,'days'],[3600,'hours'],[60,'minutes'],[1,'seconds']];
+      if(secs<1)txt='Instantly 😬';else{const u=units.find(u=>secs>=u[0]);const n=secs/u[0];txt=(n>=1e6?'More than a million':(n<10?Math.round(n):Number(n.toPrecision(2))).toLocaleString())+' '+u[1]}
+      pct=Math.min(100,Math.max(4,Math.log10(secs+1)*6));col=secs<86400?'var(--red)':secs<31536e3*100?'var(--amber)':'var(--green)';
+      txt+=secs>=31536e3*100?' 💪':'';
+    }
+    bar.style.width=pct+'%';bar.style.background=col;out.textContent=`${p.length} characters · ${txt}`;
+  };
+}
+
+/* ============ NAV + TIMER ============ */
+function show(id,tab){
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));
+  const sec=document.getElementById(id);
+  if(tab&&sec){const b=sec.querySelector(`.tabs [data-tab="${tab}"]`);if(b)b.click()}
+  window.scrollTo({top:0});
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+}
+function fmt(ms){const s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+setInterval(()=>{$('#timer').textContent='⏱ '+fmt(Date.now()-START)},1000);
+$('#resetAll').onclick=()=>{S={res:{}};START=Date.now();save();buildViews();updateTop();show('home')};
+
+buildViews();updateTop();
+const h=location.hash.slice(1);if(h&&document.getElementById(h))show(h);
+</script>
+</body>
+</html>
